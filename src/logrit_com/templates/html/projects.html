@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block projectindex %}id="active"{% endblock %}
+
+{% block content %}
+{% for project in projects %}
+<div>
+<h2>{{ project.name }}</h2>
+<p>{{ project.description|safe }}</p>
+<div>Project homepage: <a href="{{ project.homepage }}">{{project.homepage}}</a></div>
+<div>Project source: {{ project.source_url }}</div>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,16 @@
+div.columns {
+    float: left;
+    margin: 1%;
+}
+
+#blog-posts {
+    width: 46%;
+}
+
+#recent-commits {
+    width: 21%;
+}
+
+#recent-social {
+    width: 21%;
+}

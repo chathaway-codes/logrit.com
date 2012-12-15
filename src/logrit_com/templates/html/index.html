@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block home %}id="active"{% endblock %}
+
+{% block content %}
+{% load article_tags %}
+{% tag_cloud %}
+{% get_articles 10 as recent %}
+{% for article in recent %}
+<div>
+<h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+{{ article.publish_date|date:"F jS, Y" }}
+<p>{{ article.description|safe }}</p>
+</div>
+{% endfor %}
+{% endblock %}

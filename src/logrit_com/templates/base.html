@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}http://logrit.com/{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/tags.css" />
+    <link href="{{ STATIC_URL }}google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/static/google-code-prettify/prettify.js"></script>
+    {% block custom_css %}{% endblock %}
+    {% block custom_js %}{% endblock %}
+    {% block extra-head %}{% endblock %}
+    <meta name="keywords" content="{% block meta-keywords %}django, blog, zinnia, {{ entry_tags|join:", "}}{% endblock %}" />
+    {% block meta %}{% endblock %}
+  </head>
+  <body onload="prettyPrint()">
+    <div id="status-bar"></div>
+    <div id="image-view"></div>
+    <div id="nav-bar">
+      <div id="nav-bar-inner">
+	<ul>
+	  <li {% block home %}{% endblock %}><a href="/">Home</a></li>
+	  <li {% block techblogs %}{% endblock %}><a href="/techblogs/">Tech Blogs</a></li>
+	  <li {% block personalblogs %}{% endblock %}><a href="/personalblogs/">Personal Blogs</a></li>
+	  <li {% block projectindex %}{% endblock %}><a href="/projectindex/">Index of projects</a></li>
+	</ul>
+      </div>
+    </div>
+    <div id="content">
+        <div id="content-inner">
+        {% block breadcrumbs %}{% endblock %}
+        {% block content %}{% endblock %}
+        </div>
+    </div>
+    <div id="footer">
+      {% block footer %}{% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+ul.tags {
+    float: left;
+    list-style: none;
+}
+
+ul.tags li {
+    float: left;
+    padding: 5px;
+}
+
+.tag-0 { font-size: 70%; }
+.tag-1 { font-size: 95%; }
+.tag-2 { font-size: 110%; }
+.tag-3 { font-size: 130%; }
+.tag-4 { font-size: 150%; }
+.tag-5 { font-size: 175%; }
+.tag-6 { font-size: 295%; }
+.tag-7 { font-size: 215%; }

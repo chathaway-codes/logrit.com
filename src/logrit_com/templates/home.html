@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load zinnia_tags %}
+
+{% block home %}id="active"{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/home.css" />
+{% endblock %}
+
+{% block custom_js %}
+    <script type="text/html" id="commit">
+        <b>{% templatetag openvariable %}repo{% templatetag closevariable %}</b>
+        <p>{% templatetag openvariable %}message{% templatetag closevariable %}</p>
+    </script>
+    <script data-main="{{ STATIC_URL }}js/git_watcher" src="{{ STATIC_URL }}js/require-jquery.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="columns" id="blog-posts">
+        {% get_recent_entries 10 %}
+    </div>
+    <div class="columns" id="recent-commits">
+    </div>
+    <div class="columns" id="recent-social">
+      {% get_tag_cloud %}
+    </div>
+{% endblock %}
