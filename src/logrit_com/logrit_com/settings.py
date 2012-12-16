@@ -1,7 +1,15 @@
 # Django settings for logrit_com project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+PROJECT_ROOT = os.path.join(*os.path.realpath(__file__).split(os.sep)[:-2])
+
+if os.path.splitdrive(PROJECT_ROOT)[0] != '':
+    PROJECT_ROOT = os.path.splitdrive(PROJECT_ROOT)[0] + os.sep + os.path.splitdrive(PROJECT_ROOT)[1]
+else:
+    PROJECT_ROOT = os.path.join('/', PROJECT_ROOT)
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -11,8 +19,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': PROJECT_ROOT + '/database.sqlite3',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -56,7 +64,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = PROJECT_ROOT + "/collected_static/" 
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -67,6 +75,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    PROJECT_ROOT + "/static/",
 )
 
 # List of finder classes that know how to find static files in
@@ -106,19 +115,26 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    PROJECT_ROOT + "/templates/",
 )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.comments',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'git_watcher',
+    'projects',
+    'tagging',
+    'mptt',
+    'zinnia',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -149,3 +165,17 @@ LOGGING = {
         },
     }
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+     'django.contrib.auth.context_processors.auth',
+     'django.core.context_processors.i18n',
+     'django.core.context_processors.request',
+     'django.core.context_processors.media',
+     'django.core.context_processors.static',
+     'zinnia.context_processors.version',
+)
+
+try:
+    from local_settings import *
+except:
+    pass

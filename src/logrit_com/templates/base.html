@@ -19,8 +19,8 @@
       <div id="nav-bar-inner">
 	<ul>
 	  <li {% block home %}{% endblock %}><a href="/">Home</a></li>
-	  <li {% block techblogs %}{% endblock %}><a href="/techblogs/">Tech Blogs</a></li>
-	  <li {% block personalblogs %}{% endblock %}><a href="/personalblogs/">Personal Blogs</a></li>
+	  <li {% block techblogs %}{% endblock %}><a href="{% url zinnia_category_detail 'tech' %}">Tech Blogs</a></li>
+	  <li {% block personalblogs %}{% endblock %}><a href="{% url zinnia_category_detail 'personal' %}">Personal Blogs</a></li>
 	  <li {% block projectindex %}{% endblock %}><a href="/projectindex/">Index of projects</a></li>
 	</ul>
       </div>

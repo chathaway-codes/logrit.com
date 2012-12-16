@@ -1,4 +1,4 @@
 logrit.com
 ==========
 
-Personal site
+Logrit.com is my personl blog/home site/whatever. 
