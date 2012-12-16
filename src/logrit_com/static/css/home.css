@@ -12,5 +12,6 @@ div.columns {
 }
 
 #recent-social {
+    float: right;
     width: 21%;
 }
