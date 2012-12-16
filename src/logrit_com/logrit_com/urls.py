@@ -26,5 +26,5 @@ urlpatterns = patterns('',
     url(r'^projectindex/$', ListView.as_view(
         queryset=Project.objects.order_by('name'),
         context_object_name='projects',
-        template_name='html/projects.html')),
+        template_name='projects.html')),
 )

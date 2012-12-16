@@ -5,6 +5,11 @@
 
 {% block custom_css %}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/home.css" />
+    <style>
+        div#content-inner {
+            width: 98%;
+        }
+    </style>
 {% endblock %}
 
 {% block custom_js %}
@@ -26,5 +31,7 @@
     </div>
     <div class="columns" id="recent-social">
         <h1>Recent social activity</h1>
+        <a class="twitter-timeline"  href="https://twitter.com/Chuck211991" data-widget-id="280364406943125504">Tweets by @Chuck211991</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
 {% endblock %}

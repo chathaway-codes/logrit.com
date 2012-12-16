@@ -60,7 +60,7 @@
  div#nav-bar-inner ul li a {
    color: #6E6948;
  }
- 
+
  div#content {
    background-color: #D6D6D6;
    width: 100%;
@@ -81,11 +81,19 @@
 
    padding: 10px;
    margin-left: 10px;
+   float: left;
+   width: 75%
  }
 
  pre.prettyprint {
    background: #ffffff;
    font-family: monospace;
+ }
+
+ div#sidebar {
+    float: right;
+    position: relative;
+    width: 20%;
  }
  
  div#footer {
