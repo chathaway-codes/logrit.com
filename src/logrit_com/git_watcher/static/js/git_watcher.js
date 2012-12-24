@@ -2,9 +2,12 @@ require(['jquery', 'backbone', 'icanhaz', "m/commits"], function($, Backbone, ic
     var c = new Commits;
     
     var l = function() {
+        var i=0;
         c.models.forEach(function(e) {
             e.getCommits().forEach(function(commit) {
-                $("#recent-commits").append(ich.commit({repo: e.get("repo")["name"], message: commit["message"]}));
+                if(i < 10)
+                    $("#recent-commits").append(ich.commit({repo: e.get("repo")["name"], message: commit["message"]}));
+                i++;
             });
         });
     }
