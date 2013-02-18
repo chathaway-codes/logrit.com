@@ -23,6 +23,8 @@ urlpatterns = patterns('',
     url(r'^weblog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
 
+    url(r'^captcha/', include('captcha.urls')),
+
     url(r'^projectindex/$', ListView.as_view(
         queryset=Project.objects.order_by('name'),
         context_object_name='projects',
