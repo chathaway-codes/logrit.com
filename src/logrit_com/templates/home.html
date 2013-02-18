@@ -13,6 +13,7 @@
 {% endblock %}
 
 {% block custom_js %}
+{{ block.super }}
     <script type="text/html" id="commit">
         <b><a href="https://github.com/{% templatetag openvariable %}repo{% templatetag closevariable %}">{% templatetag openvariable %}repo{% templatetag closevariable %}</a></b>
         <p>{% templatetag openvariable %}message{% templatetag closevariable %}</p>
