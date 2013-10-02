@@ -1,0 +1,51 @@
+{% load cms_tags sekizai_tags %}
+{% load cache menu_tags %}
+{% load url from future %}
+{% addtoblock 'css' %}
+    <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}site.less" />
+{% endaddtoblock %}
+{% addtoblock 'js' %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/less.js"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+{% endaddtoblock %}
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>{% block title %}Logrit.com ~ Charles' Domain{% endblock %}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      {% render_block "less" %}
+      {% render_block "css" %}
+      {% block extra-head %}{% endblock %}
+      {% block head %}{% endblock %}
+  </head>
+  <body>
+    {% block slideshow %}{% endblock %}
+    {% cms_toolbar %}
+    <!-- NAVBAR 
+    =============================================== -->
+    <div class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            {% show_menu 0 100 100 100 %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+    {% block content %}{% endblock %}
+    </div>
+    {% render_block "js" %}
+  </body>
+</html>

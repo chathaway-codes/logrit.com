@@ -1,3 +1,15 @@
+<<<<<<< HEAD
 *.pyc
 ~*
 *~
+=======
+workspace/
+eclipse/
+*~
+~*
+*.swp
+*.bak
+*.pyc
+*.sqlite3
+python/
+>>>>>>> 1ec0a86e1521074c7d2301f5dad46f48e873af16
