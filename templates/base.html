@@ -1,12 +1,26 @@
 {% load cms_tags sekizai_tags %}
 {% load cache menu_tags %}
+{% load compress %}
 {% load url from future %}
-{% addtoblock 'css' %}
-    <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}site.less" />
-{% endaddtoblock %}
 {% addtoblock 'js' %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    {% if debug %}
     <script src="{{ STATIC_URL }}js/less.js"></script>
+    {% else %}
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32221133-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    {% endif %}
     <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
 {% endaddtoblock %}
 <!DOCTYPE html>
@@ -16,8 +30,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="">
       <meta name="author" content="">
-      {% render_block "less" %}
-      {% render_block "css" %}
+
+      {% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
       {% block extra-head %}{% endblock %}
       {% block head %}{% endblock %}
   </head>
@@ -34,7 +48,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">Logrit.com</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -49,3 +63,7 @@
     {% render_block "js" %}
   </body>
 </html>
+{% addtoblock 'css' %}
+    <link rel="stylesheet" type="text/less" media="all" href="{{ STATIC_URL }}site.less" />
+{% endaddtoblock %}
+

@@ -86,6 +86,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -158,6 +159,7 @@ INSTALLED_APPS = (
     'cms_bootstrap_templates',
     'tagging',
     'zinnia',
+    'compressor',
     
     # Plugins for Django CMS
     'cms.plugins.file',
@@ -178,6 +180,13 @@ CMS_TEMPLATES = (
 )
 
 CMS_TEMPLATES += bootstrap_templates
+
+COMPRESS_PRECOMPILERS = (
+   ('text/less', 'lessc {infile} {outfile}'),
+   ('stylesheet/less', 'lessc {infile} {outfile}'),
+)
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
