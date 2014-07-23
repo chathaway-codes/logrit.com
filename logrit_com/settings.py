@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.comments',
 
+    'djangocms_text_ckeditor',
     'cms',
     'mptt',
     'menus',
@@ -172,6 +173,8 @@ INSTALLED_APPS = (
 #    'cms.plugins.video',
 #    'cms.plugins.twitter',
     'cmsplugin_zinnia',
+    'djangocms_picture',
+
 
     'filer',
     'easy_thumbnails',
