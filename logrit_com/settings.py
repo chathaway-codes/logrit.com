@@ -38,7 +38,7 @@ TIME_ZONE = 'America/New_York'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 SITE_ID = 1
 
@@ -162,16 +162,19 @@ INSTALLED_APPS = (
     'compressor',
     
     # Plugins for Django CMS
-    'cms.plugins.file',
-    'cms.plugins.flash',
-    'cms.plugins.link',
-    'cms.plugins.picture',
-    'cms.plugins.snippet',
-    'cms.plugins.teaser',
-    'cms.plugins.text',
-    'cms.plugins.video',
-    'cms.plugins.twitter',
+#    'cms.plugins.file',
+#    'cms.plugins.flash',
+#    'cms.plugins.link',
+#    'cms.plugins.picture',
+#    'cms.plugins.snippet',
+#    'cms.plugins.teaser',
+#    'cms.plugins.text',
+#    'cms.plugins.video',
+#    'cms.plugins.twitter',
     'cmsplugin_zinnia',
+
+    'filer',
+    'easy_thumbnails',
 )
 
 from cms_bootstrap_templates.settings import CMS_TEMPLATES as bootstrap_templates
@@ -187,6 +190,15 @@ COMPRESS_PRECOMPILERS = (
 )
 
 INTERNAL_IPS = ('127.0.0.1',)
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

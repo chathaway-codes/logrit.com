@@ -21,6 +21,17 @@ urlpatterns = patterns('',
     url(r'^blog/tags/', include('zinnia.urls.tags')),
     url(r'^search/', include('zinnia.urls.search')),
 
+
+    url(r'^weblog/', include('zinnia.urls.entries')),
+    url(r'^weblog/', include('zinnia.urls.archives')),
+    url(r'^weblog/', include('zinnia.urls.shortlink')),
+    url(r'^weblog/', include('zinnia.urls.quick_entry')),
+    url(r'^weblog/feeds/', include('zinnia.urls.feeds')),
+    url(r'^weblog/authors/', include('zinnia.urls.authors')),
+    url(r'^weblog/categories/', include('zinnia.urls.categories')),
+    url(r'^weblog/tags/', include('zinnia.urls.tags')),
+
+
     url(r'^', include('cms.urls')),
 
 
