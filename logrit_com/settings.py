@@ -174,6 +174,8 @@ INSTALLED_APPS = (
 #    'cms.plugins.twitter',
     'cmsplugin_zinnia',
     'djangocms_picture',
+    'djangocms_link',
+    'djangocms_snippet',
 
 
     'filer',
