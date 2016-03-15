@@ -180,6 +180,8 @@ INSTALLED_APPS = (
 
     'filer',
     'easy_thumbnails',
+    'jarvis',
+    'dbbackup',
 )
 
 from cms_bootstrap_templates.settings import CMS_TEMPLATES as bootstrap_templates
@@ -233,6 +235,9 @@ LOGGING = {
         },
     }
 }
+
+DBBACKUP_STORAGE = 'dbbackup.storage.filesystem_storage'
+DBBACKUP_STORAGE_OPTIONS = {'location': '/home/chathaway/'}
 
 try:
     from local_settings import *

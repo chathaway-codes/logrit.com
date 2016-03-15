@@ -31,6 +31,8 @@ urlpatterns = patterns('',
     url(r'^weblog/categories/', include('zinnia.urls.categories')),
     url(r'^weblog/tags/', include('zinnia.urls.tags')),
 
+    url(r'^jarvis/', include('jarvis.urls')),
+
 
     url(r'^', include('cms.urls')),
 
